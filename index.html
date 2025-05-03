@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Генерирай приказка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Създай персонализирана приказка</h1>
+    <form id="storyForm">
+        <input type="text" name="name" placeholder="Име на детето" required><br>
+        <select name="age">
+            <option value="3-4">3-4 години</option>
+            <option value="5-6">5-6 години</option>
+            <option value="7-8">7-8 години</option>
+        </select><br>
+        <select name="gender">
+            <option value="girl">Момиче</option>
+            <option value="boy">Момче</option>
+            <option value="other">Друго</option>
+        </select><br>
+        <select name="character">
+            <option value="malvina">Малвина</option>
+            <option value="dragon">Драконче</option>
+            <option value="robot">Робот</option>
+        </select><br>
+        <select name="theme">
+            <option value="school">Първи ден в училище</option>
+            <option value="dark">Страх от тъмното</option>
+        </select><br>
+        <select name="emotion">
+            <option value="happy">Радост</option>
+            <option value="fear">Страх</option>
+        </select><br>
+        <button type="submit">Генерирай приказка</button>
+    </form>
+    <div id="storyOutput"></div>
+    <script src="script.js"></script>
+</body>
+</html>
