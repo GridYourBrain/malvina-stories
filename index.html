@@ -10,29 +10,63 @@
     <main>
         <h1>Избери тема за приказка</h1>
         <form id="storyForm">
-            <label for="theme">Тема:</label>
-            <select id="theme">
-                <option value="приятелство">Приятелство</option>
-                <option value="смелост">Смелост</option>
-                <option value="сила">Сила</option>
-            </select>
+  <label for="name">Име на детето:</label>
+  <input type="text" id="name" required><br><br>
 
-            <label for="character">Герой:</label>
-            <select id="character">
-                <option value="лисица">Лисица</option>
-                <option value="мечка">Мечка</option>
-                <option value="вълк">Вълк</option>
-            </select>
+  <label for="age">Възраст:</label>
+  <input type="number" id="age" min="3" max="12" required><br><br>
 
-            <label for="emotion">Емоция:</label>
-            <select id="emotion">
-                <option value="радост">Радост</option>
-                <option value="тъга">Тъга</option>
-                <option value="изненада">Изненада</option>
-            </select>
+  <label for="gender">Пол:</label>
+  <select id="gender" required>
+    <option value="">Избери</option>
+    <option value="момиче">Момиче</option>
+    <option value="момче">Момче</option>
+  </select><br><br>
 
-            <button type="submit">Генерирай приказка</button>
-        </form>
+  <label for="world">Свят:</label>
+  <select id="world" required>
+    <option value="">Избери</option>
+    <option>Магичен свят</option>
+    <option>Кралство и замъци</option>
+    <option>Природа и животни</option>
+    <option>Джунгла и динозаври</option>
+    <option>Нинджа и супергерои</option>
+    <option>Космос и бъдеще</option>
+    <option>Градски истории</option>
+    <option>В училище</option>
+    <option>Човешки свят</option>
+    <option>Семейни приказки</option>
+  </select><br><br>
+
+  <label for="character">Герой:</label>
+  <select id="character" required>
+    <option value="">Избери</option>
+    <option>Дете</option>
+    <option>Животно</option>
+    <option>Вълшебно същество</option>
+    <option>Родител + дете</option>
+    <option>Група приятели</option>
+  </select><br><br>
+
+  <label for="emotion">Емоция:</label>
+  <select id="emotion" required>
+    <option value="">Избери</option>
+    <option>Смелост</option>
+    <option>Доброта</option>
+    <option>Приятелство</option>
+    <option>Любов</option>
+    <option>Самоувереност</option>
+    <option>Спокойствие</option>
+    <option>Творчество</option>
+    <option>Любопитство</option>
+    <option>Страх</option>
+    <option>Радост</option>
+    <option>Тъга</option>
+  </select><br><br>
+
+  <button type="submit">Генерирай приказка</button>
+</form>
+
         <section id="storyOutput"></section>
     </main>
     <script src="script.js"></script>
