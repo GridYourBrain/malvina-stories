@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const emotion = document.getElementById("emotion").value;
 
     try {
-      const response = await fetch("https://malvina-stories.onrender.com/generate", {
+      const response = await fetch("https://malvina-backend.onrender.com/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
