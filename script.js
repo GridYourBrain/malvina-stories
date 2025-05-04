@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
+  const form = document.getElementById("storyForm");
   const resultBox = document.getElementById("story-result");
 
   form.addEventListener("submit", async function (e) {
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
         resultBox.innerText = "Грешка при генерирането на приказката.";
       }
     } catch (error) {
-      resultBox.innerText = "Възникна грешка.";
-      console.error("Error:", error);
+      resultBox.innerText = "Възникна грешка при заявката.";
+      console.error("Грешка:", error);
     }
   });
 });
