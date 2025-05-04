@@ -26,31 +26,17 @@ document.getElementById("storyForm").addEventListener("submit", async function (
     if (data.story) {
       storyResult.innerText = data.story;
 
-      // Показваме бутон за слушане
-      const audioBtn = document.createElement("button");
-      audioBtn.innerText = "Слушай приказката";
-      audioBtn.onclick = async () => {
-        const audioRes = await fetch("https://malvina-backend.onrender.com/audio", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ text: data.story })
-        });
-
-        const audioBlob = await audioRes.blob();
-        const audioUrl = URL.createObjectURL(audioBlob);
-
-        const audioPlayer = document.createElement("audio");
-        audioPlayer.controls = true;
-        audioPlayer.src = audioUrl;
-
-        storyResult.appendChild(document.createElement("br"));
-        storyResult.appendChild(audioPlayer);
+      // Създаване на бутон "Чети с глас"
+      const speakBtn = document.createElement("button");
+      speakBtn.innerText = "Чети с глас";
+      speakBtn.onclick = () => {
+        const utterance = new SpeechSynthesisUtterance(data.story);
+        utterance.lang = "bg-BG";
+        speechSynthesis.speak(utterance);
       };
 
       storyResult.appendChild(document.createElement("br"));
-      storyResult.appendChild(audioBtn);
+      storyResult.appendChild(speakBtn);
     } else {
       storyResult.innerText = "Няма върната приказка.";
     }
@@ -59,4 +45,3 @@ document.getElementById("storyForm").addEventListener("submit", async function (
     storyResult.innerText = "Грешка при генерирането на приказката.";
   }
 });
-
