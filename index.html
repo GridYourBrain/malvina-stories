@@ -1,74 +1,63 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malvina Stories</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malvina Stories</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <h1>Избери тема за приказка</h1>
-        <form id="storyForm">
-  <label for="name">Име на детето:</label>
-  <input type="text" id="name" required><br><br>
+  <main>
+    <h1>Избери тема за приказка</h1>
 
-  <label for="age">Възраст:</label>
-  <input type="number" id="age" min="3" max="12" required><br><br>
+    <form id="storyForm">
+      <label for="childName">Име на детето:</label>
+      <input type="text" id="childName" name="name"><br><br>
 
-  <label for="gender">Пол:</label>
-  <select id="gender" required>
-    <option value="">Избери</option>
-    <option value="момиче">Момиче</option>
-    <option value="момче">Момче</option>
-  </select><br><br>
+      <label for="childAge">Възраст:</label>
+      <input type="number" id="childAge" name="age"><br><br>
 
-  <label for="world">Свят:</label>
-  <select id="world" required>
-    <option value="">Избери</option>
-    <option>Магичен свят</option>
-    <option>Кралство и замъци</option>
-    <option>Природа и животни</option>
-    <option>Джунгла и динозаври</option>
-    <option>Нинджа и супергерои</option>
-    <option>Космос и бъдеще</option>
-    <option>Градски истории</option>
-    <option>В училище</option>
-    <option>Човешки свят</option>
-    <option>Семейни приказки</option>
-  </select><br><br>
+      <label for="childGender">Пол:</label>
+      <select id="childGender" name="gender">
+        <option value="момиче">Момиче</option>
+        <option value="момче">Момче</option>
+      </select><br><br>
 
-  <label for="character">Герой:</label>
-  <select id="character" required>
-    <option value="">Избери</option>
-    <option>Дете</option>
-    <option>Животно</option>
-    <option>Вълшебно същество</option>
-    <option>Родител + дете</option>
-    <option>Група приятели</option>
-  </select><br><br>
+      <label for="storyCategory">Свят:</label>
+      <select id="storyCategory">
+        <option value="магичен свят">Магичен свят</option>
+        <option value="кралство и замъци">Кралство и замъци</option>
+        <option value="природа и животни">Природа и животни</option>
+        <option value="джунгла и динозаври">Джунгла и динозаври</option>
+        <option value="нинджа и супергерои">Нинджа и супергерои</option>
+        <option value="космос и бъдеще">Космос и бъдеще</option>
+        <option value="градски истории">Градски истории</option>
+        <option value="в училище">В училище</option>
+        <option value="човешки свят">Човешки свят</option>
+        <option value="семейни приказки">Семейни приказки</option>
+      </select><br><br>
 
-  <label for="emotion">Емоция:</label>
-  <select id="emotion" required>
-    <option value="">Избери</option>
-    <option>Смелост</option>
-    <option>Доброта</option>
-    <option>Приятелство</option>
-    <option>Любов</option>
-    <option>Самоувереност</option>
-    <option>Спокойствие</option>
-    <option>Творчество</option>
-    <option>Любопитство</option>
-    <option>Страх</option>
-    <option>Радост</option>
-    <option>Тъга</option>
-  </select><br><br>
+      <label for="emotion">Емоция:</label>
+      <select id="emotion">
+        <option value="смелост">Смелост</option>
+        <option value="доброта">Доброта</option>
+        <option value="приятелство">Приятелство</option>
+        <option value="любов">Любов</option>
+        <option value="самоувереност">Самоувереност</option>
+        <option value="спокойствие">Спокойствие</option>
+        <option value="творчество">Творчество</option>
+        <option value="любопитство">Любопитство</option>
+        <option value="страх">Страх</option>
+        <option value="радост">Радост</option>
+        <option value="тъга">Тъга</option>
+      </select><br><br>
 
-  <button type="submit">Генерирай приказка</button>
-</form>
+      <button type="submit">Генерирай приказка</button>
+    </form>
 
-        <section id="storyOutput"></section>
-    </main>
-    <script src="script.js"></script>
+    <section id="story-result"></section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
