@@ -9,6 +9,9 @@ document.getElementById("storyForm").addEventListener("submit", async function (
 
   const prompt = `Напиши приказка за дете на ${age} години, ${gender}, на име ${name}. Темата е "${category}", с емоция "${emotion}".`;
 
+  const storyResult = document.getElementById("story-result");
+  storyResult.innerText = "Генерираме приказка...";
+
   try {
     const response = await fetch("https://malvina-backend.onrender.com/generate", {
       method: "POST",
@@ -21,12 +24,39 @@ document.getElementById("storyForm").addEventListener("submit", async function (
     const data = await response.json();
 
     if (data.story) {
-      document.getElementById("story-result").innerText = data.story;
+      storyResult.innerText = data.story;
+
+      // Показваме бутон за слушане
+      const audioBtn = document.createElement("button");
+      audioBtn.innerText = "Слушай приказката";
+      audioBtn.onclick = async () => {
+        const audioRes = await fetch("https://malvina-backend.onrender.com/audio", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ text: data.story })
+        });
+
+        const audioBlob = await audioRes.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+
+        const audioPlayer = document.createElement("audio");
+        audioPlayer.controls = true;
+        audioPlayer.src = audioUrl;
+
+        storyResult.appendChild(document.createElement("br"));
+        storyResult.appendChild(audioPlayer);
+      };
+
+      storyResult.appendChild(document.createElement("br"));
+      storyResult.appendChild(audioBtn);
     } else {
-      document.getElementById("story-result").innerText = "Няма върната приказка.";
+      storyResult.innerText = "Няма върната приказка.";
     }
   } catch (error) {
     console.error("Грешка при заявката:", error);
-    document.getElementById("story-result").innerText = "Грешка при генерирането на приказката.";
+    storyResult.innerText = "Грешка при генерирането на приказката.";
   }
 });
+
